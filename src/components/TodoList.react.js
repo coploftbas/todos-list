@@ -5,11 +5,13 @@ import TodoItem from './TodoItem.react'
 class TodoList extends React.Component {
     render() {
         return (
-            <div>
+            <nav className="panel">
+                <p className="panel-heading">
+                    <strong>1</strong> Completed
+                </p>
                 <TodoItem />
                 <TodoItem />
-                <TodoItem />
-            </div>
+            </nav>
         )
     }
 }

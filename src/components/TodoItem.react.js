@@ -3,7 +3,10 @@ import React from 'react'
 class TodoItem extends React.Component {
     render() {
         return (
-            <div>TODO item</div>
+            <label className="panel-block">
+                <input type="checkbox" />
+                TODOs item
+            </label>
         )
     }
 }

@@ -6,9 +6,11 @@ class TodoList extends React.Component {
     render() {
         return (
             <nav className="panel">
+                {/* FOR COMPLETION PART
                 <p className="panel-heading">
                     <strong>1</strong> Completed
-                </p>
+                </p> 
+                */}
                 <TodoItem />
                 <TodoItem />
             </nav>

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import TodoModal from './TodoModal.react'
+
 const myStyles = {
     myDiv: {
         // backgroundColor: 'lightgreen',
@@ -10,6 +12,22 @@ const myStyles = {
 }
 
 class Header extends React.Component {
+
+    state = {
+        showTodoForm: false
+    }
+
+    addNewTodo() {
+        console.log('add new todo function')
+        // console.log(this.state.showForm)
+        this.setState({ showTodoForm: true })
+    }
+
+    closeTodoModal() {
+        console.log('close todo modal')
+        this.setState({ showTodoForm: false })
+    }
+
     render(){
         return (
                 <nav className="level is-right" style={myStyles.myDiv}>
@@ -22,13 +40,14 @@ class Header extends React.Component {
                     </div>
                     <div className="level-right is-right" style={myStyles.myDivButton}>
                         <p className="level-item">
-                            <a className="button is-success is-outlined">
+                            <a className="button is-success is-outlined" onClick={() => this.addNewTodo()}>
                                 <span className="icon">
                                     <i className="fas fa-plus"></i>
                                 </span>
                             </a>
                         </p>
                     </div>
+                    {this.state.showTodoForm && <TodoModal closeModal={() => this.closeTodoModal()} />}
                 </nav>
         )
     }

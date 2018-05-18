@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TodoModal from './TodoModal.react'
+import TodoModalForm from './TodoModalForm.react'
 
 const myStyles = {
     myDiv: {
@@ -14,18 +14,18 @@ const myStyles = {
 class Header extends React.Component {
 
     state = {
-        showTodoForm: false
+        showTodoModalForm: false
     }
 
     addNewTodo() {
         console.log('add new todo function')
         // console.log(this.state.showForm)
-        this.setState({ showTodoForm: true })
+        this.setState({ showTodoModalForm: true })
     }
 
-    closeTodoModal() {
+    closeTodoModalForm() {
         console.log('close todo modal')
-        this.setState({ showTodoForm: false })
+        this.setState({ showTodoModalForm: false })
     }
 
     render(){
@@ -47,7 +47,7 @@ class Header extends React.Component {
                             </a>
                         </p>
                     </div>
-                    {this.state.showTodoForm && <TodoModal closeModal={() => this.closeTodoModal()} />}
+                {this.state.showTodoModalForm && <TodoModalForm closeModal={() => this.closeTodoModalForm()} />}
                 </nav>
         )
     }

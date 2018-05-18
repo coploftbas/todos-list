@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import Dashboard from './pages/Dashboard.react'
 import Header from './components/Header.react'
-// import TodoModal from './components/TodoModal.react'
 
 const myStyles = {
   myDivContainer : {
@@ -17,7 +16,6 @@ class App extends Component {
           <div className="section">
             <Header />
             <Dashboard />
-            {/* <TodoModal /> */}
           </div>
         </div>
     )

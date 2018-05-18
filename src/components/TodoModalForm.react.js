@@ -1,6 +1,13 @@
 import React from 'react'
 
 class TodoModalForm extends React.Component {
+
+    state = {
+        todoTitle: '',
+        todoDesc: '',
+        
+    }
+
     render() {
         return (
             <div className="modal is-active">

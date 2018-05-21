@@ -6,7 +6,7 @@ This application is for adding a list of TODOs using ReactJS, Redux and localSto
 
 * **Add new TODO to list** - Tap at plus button at the top right button
 * **Mark TODO as completed** - check / uncheck the checkbox in front of the title
-<br>
+
 All TODOs in the list will be stored in both `Redux` and `localStorage`.
 
 ## Installation
@@ -19,16 +19,16 @@ terminal using `cd` to entering the folder.
 Afterward, you'll need to install the `node_module` dependencies that require.
 Both `npm` or `yarn` would be fine.
 
-```$ npm install```
-or
-```$ yarn add```
+`$ npm install` <br>
+or <br>
+`$ yarn add`
 
 ## Running
 
 Start the server using `npm` or `yarn`.
 
-```$ npm start```
-or
-```$ yarn start```
+`$ npm start`<br>
+or<br>
+`$ yarn start`
 
 Then, it will launch the website automatically with url `localhost:3000/` or similarly.

@@ -35,9 +35,9 @@ export default function(state = initialState, action) {
                 ...state,
                 {
                     id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-                    title: action.payload.todoTitle,
-                    desc: action.payload.todoDesc,
-                    date: action.payload.todoDate,
+                    title: action.payload.title,
+                    desc: action.payload.desc,
+                    date: action.payload.date,
                     completed: action.payload.completed
                 }
             ]
@@ -59,9 +59,9 @@ export default function(state = initialState, action) {
                 if(todo.id === action.id) {
                     return { 
                         ...todo,
-                        title: action.payload.todoTitle,
-                        desc: action.payload.todoDesc,
-                        date: action.payload.todoDate
+                        title: action.payload.title,
+                        desc: action.payload.desc,
+                        date: action.payload.date
                     } 
                 }
                 return todo

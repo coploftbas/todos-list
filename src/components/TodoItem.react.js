@@ -27,7 +27,7 @@ class TodoItem extends React.Component {
                 <input
                     type="checkbox"
                     defaultChecked={todoItemObj.completed} />
-                {this.props.todoItemObj.title}
+                {todoItemObj.title}
             </a>
         )
     }

@@ -49,7 +49,9 @@ class TodoModalForm extends React.Component {
         //   - notExisted -> make a new array to store
         //                -> start new ID using 0
         const allTodoJson = localStorage.myTODOs ? JSON.parse(localStorage.myTODOs) : []
-        const newID = localStorage.myTODOs ? allTodoJson.length : 0
+        const newID = localStorage.myTODOs ? 
+                        allTodoJson.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1 
+                        : 0
 
         // push new object to localStorage
         allTodoJson.push({ ...this.state, completed: false, id: newID })

@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO_COMPLETED, UPDATE_TODO } from './types'
+import { 
+    ADD_TODO, 
+    TOGGLE_TODO_COMPLETED, 
+    DELETE_TODO,
+    UPDATE_TODO,
+} from './types'
 
 // ====================== Description ===================================
 // This todoAction is for setting up the data which will be
@@ -12,6 +17,9 @@ import { ADD_TODO, TOGGLE_TODO_COMPLETED, UPDATE_TODO } from './types'
 // toggleTodoComplete - Preparing data for toggle 'completed' of TODO to Store
 //                    - Set 'type' as 'TOGGLE_TODO_COMPLETED'
 //                    - received only 'id' of the specify object and put in payload
+// deleteTodo - Remove TODO form Store
+//            - Set 'type' as 'DELETE_TODO'
+//            - received only 'id' of the specify object and put in payload
 // =======================================================================
 
 export const addTodo = todo => ({
@@ -21,7 +29,12 @@ export const addTodo = todo => ({
 
 export const toggleTodoCompleted = id => ({
     type: TOGGLE_TODO_COMPLETED,
-    id: id
+    id: id,
+})
+
+export const deleteTodo = id => ({
+    type: DELETE_TODO,
+    id: id,
 })
 
 export const updateTodo = (id, todo) => ({

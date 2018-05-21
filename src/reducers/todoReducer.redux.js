@@ -1,4 +1,9 @@
-import { ADD_TODO, TOGGLE_TODO_COMPLETED, UPDATE_TODO } from '../actions/types'
+import { 
+    ADD_TODO, 
+    TOGGLE_TODO_COMPLETED, 
+    DELETE_TODO,
+    UPDATE_TODO,
+ } from '../actions/types'
 
 const initialState = [
     {
@@ -22,6 +27,7 @@ const initialState = [
 // ======================== Cases ============================
 // ADD_TODO - Add new object in array in store
 // TOGGLE_TODO_COMPLETED - Toggle 'completed' value specified by id
+// DELETE_TODO - Remove TODO that specified by id
 // UPDATE_TODO - Update information from selected id
 // ===========================================================
 
@@ -53,6 +59,12 @@ export default function(state = initialState, action) {
                 }
                 return todo
             })
+        }
+        case DELETE_TODO: {
+            console.log('[todo reducer] case DELETE_TODO')
+            return state.filter(todo => 
+                todo.id !== action.id
+            )
         }
         case UPDATE_TODO: {
             return state.map((todo) => {

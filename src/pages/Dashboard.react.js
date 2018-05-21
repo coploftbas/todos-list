@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
+// import { bindActionCreators } from 'redux'
 
 import TodoList from '../components/TodoList.react'
-import { toggleTodoCompleted } from '../actions/todoAction'
+// import { toggleTodoCompleted, deleteTodo } from '../actions/todoAction'
 
 // ======================= Description ================================
 // Retrieved data from Store where value's key is 'todos: []'
@@ -21,7 +22,7 @@ const mapStateToProps = state => ({
 //   dispatch() to call Reducer to update the 'completed' value
 // ====================================================================
 const mapDispatchToProps = dispatch => ({
-    toggleTodoCompleted: id => dispatch(toggleTodoCompleted(id))
+    // toggleTodoCompleted: id => dispatch(toggleTodoCompleted(id)),
 })
 
 // ======================= Description ================================

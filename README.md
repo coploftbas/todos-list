@@ -5,7 +5,8 @@ This application is for adding TODOs into list using ReactJS, Redux and localSto
 ## Features
 
 * **Add new TODO to list** - Tap at plus button at the top right button
-* **Mark TODO as completed** - check / uncheck the checkbox in front of the title
+* **Mark TODO as completed** - Check / uncheck the checkbox in front of the title
+* **Delete TODO from list** - Tap at the trash button of each TODO to remove it
 
 All TODOs in the list will be stored in both `Redux Store` and `localStorage`. In case of re-entering the application, all data still there!
 

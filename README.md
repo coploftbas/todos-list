@@ -1,6 +1,6 @@
 # TODOs list
 
-This application is for adding a list of TODOs using ReactJS, Redux and localStorage.
+This application is for adding TODOs into list using ReactJS, Redux and localStorage.
 
 ## Features
 

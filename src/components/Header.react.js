@@ -11,18 +11,29 @@ const myStyles = {
     },
 }
 
+// ======================= Description ================================
+// This component is to render 3 main things
+//  - Reminders text
+//  - Add button
+//  - <TodoModalForm /> (hidden as default)
+// This component has been called from <App />
+// ====================================================================
 class Header extends React.Component {
 
+    // Close the Modal form as default
     state = {
         showTodoModalForm: false
     }
 
+    // For showing the form in Modal for adding a new TODO
+    // Called after click the Add Button
     addNewTodo() {
         console.log('add new todo function')
-        // console.log(this.state.showForm)
         this.setState({ showTodoModalForm: true })
     }
 
+    // For hiding the Modal form
+    // Send into <TodoModalForm /> as props
     closeTodoModalForm() {
         console.log('close todo modal')
         this.setState({ showTodoModalForm: false })
@@ -47,7 +58,9 @@ class Header extends React.Component {
                             </a>
                         </p>
                     </div>
-                {this.state.showTodoModalForm && <TodoModalForm closeModal={() => this.closeTodoModalForm()} />}
+                {this.state.showTodoModalForm && 
+                    <TodoModalForm 
+                        closeModal={() => this.closeTodoModalForm()}/>} 
                 </nav>
         )
     }

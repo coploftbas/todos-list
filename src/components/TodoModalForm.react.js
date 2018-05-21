@@ -1,4 +1,22 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from '../actions/todoAction'
+
+// ======================= Description ================================
+// This component is to render the Form of TODO which consist 3 input
+//  - Title
+//  - Description
+//  - Date
+// This component submit the input value to add a new TODO via dispatch()
+// ====================== Received props ==============================
+// This component has been called from <Header /> with props
+// - closeModal() - function to hide the Modal form (this component)
+//                - called after clikcked 'Save' or 'x' button
+// ======================== Behavior ==================================
+// This component use state to track user's input and store them.
+// Then, it will submit 3 input value to add a new TODO via dispatch()
+// which is called in addNewTodo() after click 'Add' button
+// ====================================================================
 
 class TodoModalForm extends React.Component {
 
@@ -6,11 +24,28 @@ class TodoModalForm extends React.Component {
         todoTitle: '',
         todoDesc: '',
         todoDate: '',
-        completed: false
     }
 
     addNewTodo() {
-        console.log(this.state)
+        var { dispatch } = this.props
+        console.log('[TODO Modal form] this.state - ',this.state)
+
+        // 'addToto' is for setup data before call dispatch
+        // set default value of 'completed' as false
+        // use {this.state(title, desc, date) + completed} -> to put into payload
+        const preparedAddTodo = addTodo({...this.state, completed: false})
+        console.log('[TODO Modal form] preparedAddTodo - ', preparedAddTodo)
+
+        // dispatch - for sending request -> reducers/index -> reducers/todoReducer
+        dispatch(preparedAddTodo)
+        console.log('[TODO Modal form] add TODO to redux via dispatch completed')
+        this.setState({
+            todoTitle: '',
+            todoDesc: '',
+            todoDate: '',
+            completed: false
+        })
+        this.props.closeModal()
     }
 
     render() {
@@ -25,12 +60,12 @@ class TodoModalForm extends React.Component {
                     </header>
                     <section className="modal-card-body">
                         <div className="field">
-                            <label className="label">TODO title</label>
+                            <label className="label">Title</label>
                             <div className="control">
                                 <input 
                                     className="input" 
                                     type="text" 
-                                    placeholder="TODO title" 
+                                    placeholder="TODO's title" 
                                     value={this.state.todoTitle} 
                                     onChange={(event) => this.setState({ todoTitle: event.target.value })} />
                             </div>
@@ -58,7 +93,7 @@ class TodoModalForm extends React.Component {
                         </div>
                     </section>
                     <footer className="modal-card-foot">
-                        <button className="button is-success" onClick={() => this.addNewTodo()}>Save changes</button>
+                        <button className="button is-success" onClick={() => this.addNewTodo()}>Add</button>
                         <button className="button">Cancel</button>
                     </footer>
                 </div>
@@ -67,4 +102,4 @@ class TodoModalForm extends React.Component {
     }
 }
 
-export default TodoModalForm
+export default connect()(TodoModalForm)
